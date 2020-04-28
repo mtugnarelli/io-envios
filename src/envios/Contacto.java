@@ -3,13 +3,11 @@ package envios;
 public class Contacto {
 
 	private String nombre;
-	private String dni;
 	private Direccion direccion;
 	
-	public Contacto(String nombre, String dni) {
+	public Contacto(String nombre) {
 		
 		this.nombre = nombre;
-		this.dni = dni;
 	}
 	
 	public void asignar(Direccion direcion) {
@@ -19,8 +17,6 @@ public class Contacto {
 	
 	public String identificar() {
 		
-		return nombre + 
-				" DNI " + dni +
-				" -> " + direccion.localizar();
+		return nombre + " -> " + direccion.localizar();
 	}
 }
