@@ -1,0 +1,8 @@
+500, 0.300, origen: (Mariano , direccion: (Rivadavia, 2321, CABA)), destino: (Martin, direccion(Paraguay, 232, Villa Bosch)) 
+300, 0.200, origen: (Mariano , direccion: (Rivadavia, 2321, CABA)), destino: (Martin, direccion(Paraguay, 232, Villa Bosch)) 
+
+              
+             100,           0.100, origen: (Mariano , direccion:(Rivadavia, 2321, CABA)), destino:(Martin, direccion(Paraguay, 232, Villa Bosch)) 
+500, 0.300, origen: (Mariano , direccion: (Rivadavia, 2321, CABA)), destino:(Martin, direccion:(Paraguay, 232, Villa Bosch))
+ 
+500, 0.300, origen:  (Mariano , direccion:    (Rivadavia, 2321, CABA)), destino:  (Martin, direccion:  (Paraguay, 232, Villa Bosch))    
