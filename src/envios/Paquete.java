@@ -25,24 +25,41 @@ public class Paquete {
 		destino = contacto;
 	}
 	
-	public String enviar() {
+	/* pre : el origen no puede ser nulo, es decir se tiene que indicar dónde
+	 * 		 se recoge el Paquete.
+	 * 
+	 */
+	public String enviar() throws ExcepcionEnElEnvio {
 		
+		if (origen == null) {
+			throw new NoSePuedeEnviarElPaquete("No tiene origen");
+		}
+
+		if (destino == null) { 
+			throw new NoSePuedeEnviarElPaquete("No tiene destino");
+		}
+			
 		StringWriter salida = new StringWriter();
 		PrintWriter impresor = new PrintWriter(salida);
 		
-		impresor.println("********************");
-		impresor.println("Paquete");
-		impresor.println("--------------------");
-		impresor.print("Peso: ");
-		impresor.println(peso);
-		impresor.print("Costo: ");
-		impresor.println(costo);
-		impresor.print("Retirar: ");
-		impresor.println(origen.identificar());
-		impresor.print("Entregar: ");
-		impresor.println(destino.identificar());
+		try {
+			impresor.println("********************");
+			impresor.println("Paquete");
+			impresor.println("--------------------");
+			impresor.print("Peso: ");
+			impresor.println(peso);
+			impresor.print("Costo: ");
+			impresor.println(costo);
+			impresor.print("Retirar: ");
+			impresor.println(origen.identificar());
+			impresor.print("Entregar: ");
+			impresor.println(destino.identificar());
+			
+		} finally {
+			
+			impresor.close();
+		}
 
-		impresor.close();
 		return salida.toString();
 	}
 }

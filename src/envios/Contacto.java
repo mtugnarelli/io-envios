@@ -15,8 +15,14 @@ public class Contacto {
 		this.direccion = direcion;
 	}
 	
-	public String identificar() {
+	public String identificar() throws NoSePuedeIdentificarElContacto {
+		
+		if (direccion == null) {
+			
+			throw new NoSePuedeIdentificarElContacto("No tiene dirección", this.nombre);
+		}
 		
 		return nombre + " -> " + direccion.localizar();
 	}
+	
 }

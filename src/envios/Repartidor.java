@@ -2,10 +2,21 @@ package envios;
 
 public class Repartidor {
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) {	
+		
 		Repartidor repartidor = new Repartidor();
-		repartidor.trabajar();
+		
+		try {
+			
+			repartidor.trabajar();
+			
+		} catch (Exception e) {
+			
+			System.out.println("Ocurrió un problema al trabajar");
+			e.printStackTrace();
+		}
 	}	
+	
 	public void trabajar() {
 		
 		System.out.println("-- INICIA EL DÍA --");
@@ -18,7 +29,7 @@ public class Repartidor {
 		paquetes[0] = new Paquete(300, 1.5);
 
 		origen = new Contacto("Juan Perez");
-		origen.asignar(new Direccion("Urquiza","1245", "Caseros"));
+		//origen.asignar(new Direccion("Urquiza","1245", "Caseros"));
 		paquetes[0].recogerEn(origen);
 		
 		destino = new Contacto("Ana Fernandez");
@@ -50,11 +61,29 @@ public class Repartidor {
 
 		for(int i = 0; i < paquetes.length; i++) {
 
-			Paquete unPaquete = paquetes[i];
+			enviarPaquete(i, paquetes[i]);
 			
-			System.out.println(unPaquete.enviar());
 		}
 		System.out.println("-- TERMINA EL DÍA --");
+	}
+
+	private void enviarPaquete(int numero, Paquete paquete) {
+		
+		try {
+			
+			System.out.println(paquete.enviar());
+			
+		} catch (ExcepcionEnElEnvio e) {
+			
+			System.out.println("No se pudo enviar el paquete " + numero + 
+							 	" porque: " + e.obtenerCausa());
+			e.printStackTrace();
+			
+		} catch (Exception e) {
+		
+			System.out.println("Ocurrió un error al enviar un paquete: " + numero);
+			e.printStackTrace();
+		}
 	}
 
 	/* Qué pasa si comentamos únicamente la línea 33 */
